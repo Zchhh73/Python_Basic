@@ -1,0 +1,42 @@
+use petstore;
+
+create table if not exists accounts(
+	userid varchar(80) not null,
+    password varchar(25) not null,
+    email varchar(80) not null,
+    name varchar(80) not null,
+    addr varchar(80) not null,
+    city varchar(80) not null,
+    country varchar(20) not null,
+    phone varchar(80) not null,
+    primary key (userid)
+);
+
+create table if not exists products(
+	productid varchar(10) not null,
+    category varchar(10) not null,
+    cname varchar(80) not null,
+    ename varchar(80) not null,
+    image varchar(20) not null,
+    descn varchar(255) not null,
+    listprice decimal(10,2) not null,
+    unitcost decimal(10,2) not null,
+    primary key (productid)
+);
+
+create table if not exists orders(
+	orderid bigint not null,
+    userid varchar(80) not null,
+    orderdate datetime not null,
+    status int not null default 0,
+    amount decimal(10,2) not null,
+    primary key (orderid)
+);
+
+create table if not exists orderdetails(
+	orderid bigint not null,
+    productid varchar(10) not null,
+    quantity int not null,
+    unitcost decimal(10,2) null,
+    primary key (orderid, productid)
+);

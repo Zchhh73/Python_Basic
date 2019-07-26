@@ -1,0 +1,2 @@
+Python中将数据保存到数据库中技术有很多，但主要分为两类：
+遵循Python DB-API和ORM技术，通过python中编写sql访问数据库
